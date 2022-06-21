@@ -1,0 +1,17 @@
+jobs:
+  - name: updater
+    command: python /app/update-from-gambitrewards.py
+    shell: /bin/bash
+    schedule: "*/2 * * * *"
+    timezone: America/New_York
+    user: root
+    onFailure:
+      retry:
+        maximumRetries: 3
+        initialDelay: 10
+        maximumDelay: 60
+        backoffMultiplier: 2
+
+web:
+  listen:
+    - http://127.0.0.1:8080

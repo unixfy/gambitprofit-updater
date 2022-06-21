@@ -1,0 +1,2 @@
+requests == 2.26.0
+yacron == 0.13.0
